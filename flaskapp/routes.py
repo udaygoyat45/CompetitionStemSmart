@@ -22,5 +22,17 @@ def home():
 
 @app.route("/highlights")
 def highlights():
-    return render_template("highlights.html")
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        name = form.first_name.data + form.last_name.data
+        email = form.email.data
+        message = form.message.data
+
+        new_commit = Message(name=name, email=email, message=message)
+        db.session.add(new_commit)
+        db.session.commit()
+
+        flash("mesage delivered", 'success')
+
+    return render_template("highlights.html", form=form)
     
