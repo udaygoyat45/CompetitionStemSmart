@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block a %}
+<form class="form-signin mt-4" method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-label-group">
+        {{ form.email.label() }}
+        {% if form.email.errors %}
+        {{ form.email( class="form-control is-invalid mb-3") }}
+        <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email( class="form-control mb-3") }}
+        {% endif %}
+    </div>
+
+    <div class="form-label-group">
+        {{ form.confirm_email.label() }}
+        {% if form.confirm_email.errors %}
+        {{ form.confirm_email( class="form-control is-invalid mb-3") }}
+        <div class="invalid-feedback">
+            {% for error in form.confirm_email.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        {{ form.confirm_email( class="form-control mb-3") }}
+        {% endif %}
+    </div>
+
+    <div class="form-label-group">
+        {{ form.first_name.label() }}
+        {% if form.first_name.errors %}
+        {{ form.first_name( class="form-control is-invalid mb-3") }}
+        <div class="invalid-feedback">
+            {% for error in form.first_name.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.first_name( class="form-control mb-3") }}
+        {% endif %}
+    </div>
+
+    <div class="form-label-group">
+        {{ form.last_name.label() }}
+        {% if form.last_name.errors %}
+        {{ form.last_name( class="form-control is-invalid mb-3") }}
+        <div class="invalid-feedback">
+            {% for error in form.last_name.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.last_name( class="form-control mb-3") }}
+        {% endif %}
+    </div>
+
+    <div class="form-label-group">
+        {{ form.message.label() }}
+        {% if form.message.errors %}
+        {{ form.message( class="form-control is-invalid mb-3") }}
+        <div class="invalid-feedback">
+            {% for error in form.message.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% else %}
+        {{ form.message( class="form-control mb-3") }}
+        {% endif %}
+    </div>
+
+    {{ form.submit(class="btn btn-lg btn-primary btn-block text-uppercase") }}
+
+</form>
+{% endblock a %}
